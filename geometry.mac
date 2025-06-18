@@ -1,0 +1,28 @@
+# ==============================================
+# GEOMETRY DEFINITION
+# ==============================================
+
+# 1. 定义世界（World）
+/gate/world/geometry/setXLength 1 m
+/gate/world/geometry/setYLength 1 m
+/gate/world/geometry/setZLength 1 m
+/gate/world/setMaterial G4_AIR
+
+# 2. 在世界内添加一个盒子（例如肺模型）
+/gate/world/daughters/name lung
+/gate/world/daughters/insert box
+/gate/lung/geometry/setXLength 10 cm
+/gate/lung/geometry/setYLength 10 cm
+/gate/lung/geometry/setZLength 10 cm
+/gate/lung/setMaterial G4_WATER  # 可以换成 G4_LUNG_ICRP 等材料
+
+# 3. 可选：添加一个探测器（例如剂量计）
+/gate/world/daughters/name detector
+/gate/world/daughters/insert box
+/gate/detector/geometry/setXLength 5 cm
+/gate/detector/geometry/setYLength 5 cm
+/gate/detector/geometry/setZLength 5 cm
+/gate/detector/placement/setTranslation 15 0 0 cm
+/gate/detector/setMaterial G4_PLASTIC_SC_VINYLTOLUENE
+
+
