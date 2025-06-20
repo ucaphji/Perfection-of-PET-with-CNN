@@ -1,0 +1,6 @@
+/gate/physics/Gamma/SetCutInRegion	crystal 0.05 mm
+/gate/physics/Electron/SetCutInRegion	crystal 0.1 mm
+/gate/physics/Positron/SetCutInRegion	crystal 0.1 mm
+
+/gate/physics/SetMaxTrackLengthInRegion world 1000 mm
+/gate/physics/ActivateSpecialCuts gamma

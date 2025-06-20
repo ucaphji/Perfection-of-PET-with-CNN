@@ -1,27 +1,82 @@
 /vis/disable
 /control/macroPath /home/gateuser/sim
+
+#------------------------#
+#  Runtime control commands 
+#------------------------#
+
 /control/verbose 2
 /run/verbose 2
 /event/verbose 1
 /tracking/verbose 1
 
+#------------------------#
+#  Set Materials
+#------------------------#
+
+/gate/geometry/setMaterialDatabase /home/gateuser/sim/GateMaterials.db
+
+#------------------------#
+#  Set Geometry(World，module)
+#------------------------#
 
 /control/execute geometry.mac 
-/gate/physics/addPhysicsList QGSP_BERT_HP_EMZ
-/gate/physics/addPhysicsList G4RadioactiveDecayPhysics
-/gate/physics/addProcess RadioactiveDecay
-#/gate/physics/processList
+
+#------------------------#
+#  Set up the Physical Process
+#------------------------#
+
+/control/execute physics.mac
+
+#------------------------#
+#  Set the Cut value
+#------------------------#
+
+/control/execute cuts.mac
+
+#------------------------#
+#  Set the Phantom (Lung tissue)
+#------------------------#
+
+/control/execute/ phantom.mac
+
+#------------------------#
+#  Initialization
+#------------------------#
 
 /run/initialize
 /process/em/fluo true
 /process/em/auger true
 /process/em/pixe true
 
+#------------------------#
+#  Set the source (68Ga) 
+#------------------------#
+
 /control/execute source.mac
-/gate/source/selectSource Ga68
 /run/physicsModified
+
+#------------------------#
+#  Set the output
+#------------------------#
 
 /gate/output/root/setFileName output.root
 /gate/output/root/enable
 
-/run/beamOn 10
+#------------------------#
+#Set the random setForcedHalfLife
+#------------------------#
+
+/gate/random/setEngineName JamesRandom
+/gate/random/setEngineSeed auto
+
+
+#------------------#
+# ACQUISITION TIME #
+#------------------#
+
+/gate/application/setTimeSlice   100 ms
+/gate/application/setTimeStart   0 ms
+/gate/application/setTimeStop    20 s
+
+/gate/application/startDAQ

@@ -1,23 +1,23 @@
-/gate/source/addSource Ga68 gps
+# 添加一个名为 Ga68Lung 的体素源
+/gate/source/addSource Ga68 voxel
 
 /gate/source/Ga68/setActivity 1 MBq
+
 /gate/source/Ga68/gps/particle ion
-/gate/source/Ga68/gps/ion 31 68 0 0  # Z=31 (Ga), A=68
+/gate/source/Ga68/gps/ion 31 68 0 0
 
 /gate/source/Ga68/setForcedUnstableFlag true
 /gate/source/Ga68/setForcedHalfLife 3672.36 s 
 
-# 位置设置（使用新语法）
-/gate/source/Ga68/gps/pos/type Point
-/gate/source/Ga68/gps/pos/centre 0. 0. 0. cm
+# 设置体素源的位置（默认是从 corner 开始，需往负方向平移半个维度）
+/gate/source/Ga68/setPosition -32.0 -32.0 -32.0 mm
 
 # 角度分布（各向同性）
 /gate/source/Ga68/gps/ang/type iso
 
-/gate/source/Ga68/gps/ene/type Mono
-/gate/source/Ga68/gps/ene/mono 10 keV
 
-#/gate/source/list
+
+
 
 
 
