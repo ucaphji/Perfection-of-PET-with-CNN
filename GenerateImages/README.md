@@ -29,3 +29,12 @@ Generate .h33 header file (STIR/GATE format)
 
 6. EllipGenerator.py:
 In a three-dimensional phantom (Box), an ellipsoid with arbitrary rotation direction, arbitrary position, arbitrary size, and arbitrary μ value is inserted to simulate a target with specific attenuation characteristics (such as tumors, lesions, artifacts, etc.)
+
+7. main.py:
+Generate multiple 3D attenuation coefficient images (lung boxes), add random ellipsoids to each image, and save them as binary files for use in GATE (Geant4 Application for Tomographic Emission) or similar simulation software
+  generate_lung_box(n)：
+Create a n×n×n 3D lung tissue box with a constant Mu value between 0.2 and 0.3 (multiplied by 1000).
+  add_random_ellipsoids(Box, n)：
+Several ellipsoids  are randomly inserted into the lung box.
+  generate_actgate(n, output_dir)：
+Create an activation map (ActGate), saved as a .bin file, simulating a radiotracer or functional region.
