@@ -20,7 +20,7 @@
 #  Set Geometry(World，module)
 #------------------------#
 
-/control/execute geometry.mac 
+#/control/execute geometry.mac 
 
 #------------------------#
 #  Set up the Physical Process
@@ -38,7 +38,7 @@
 #  Set the Phantom (Lung tissue)
 #------------------------#
 
-/control/execute/ phantom.mac
+/control/execute phantom.mac
 
 #------------------------#
 #  Initialization
