@@ -30,7 +30,15 @@ def add_random_ellipsoids(Box, n):
 
 def generate_actgate(n, output_dir):
     ag = ActGate(n)
-    save_image_bin(ag, os.path.join(output_dir, "ActGate"))
+    file_name = "ActGate"
+    bin_path = os.path.join(output_dir, file_name + ".bin")
+    hdr_path = os.path.join(output_dir, file_name + ".h33")
+
+    size = [n, n, n]
+    width = [1.0, 1.0, 1.0]
+
+    save_image_bin(ag, bin_path)
+    createH33Header(size, width, file_name + ".bin", hdr_path)
 
 def main():
     n = VOLUME_SIZE

@@ -1,16 +1,21 @@
 # 添加一个名为 Ga68Lung 的体素源
 /gate/source/addSource Ga68 voxel
+/gate/source/Ga68/reader/insert image
 
-/gate/source/Ga68/setActivity 1 MBq
+# INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO
+# ACTIVITY VALUES
+/gate/source/Ga68/imageReader/translator/insert linear
+/gate/source/Ga68/imageReader/linearTranslator/setScale 10. kBq
 
-/gate/source/Ga68/gps/particle ion
-/gate/source/Ga68/gps/ion 31 68 0 0
+# READ IMAGE
+/gate/source/Ga68/imageReader/readFile /home/gateuser/sim/ActGate.h33
 
-/gate/source/Ga68/setForcedUnstableFlag true
-/gate/source/Ga68/setForcedHalfLife 3672.36 s 
 
 # 设置体素源的位置（默认是从 corner 开始，需往负方向平移半个维度）
 /gate/source/Ga68/setPosition -32.0 -32.0 -32.0 mm
+
+/gate/source/Ga68/gps/particle ion
+/gate/source/Ga68/gps/ion 31 68 0 0
 
 # 角度分布（各向同性）
 /gate/source/Ga68/gps/ang/type iso
