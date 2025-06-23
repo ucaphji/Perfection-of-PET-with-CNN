@@ -2,7 +2,6 @@
 /gate/physics/addPhysicsList emlivermore #standard_opt4 empenelope
 /gate/physics/addPhysicsList G4RadioactiveDecayPhysics
 /gate/physics/addProcess RadioactiveDecay
-/gate/physics/addProcess Decay
 
 /gate/physics/processList Enabled
 
