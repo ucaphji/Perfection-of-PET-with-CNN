@@ -8,7 +8,7 @@
 /gate/source/Ga68/imageReader/linearTranslator/setScale 10. kBq
 
 # READ IMAGE
-/gate/source/Ga68/imageReader/readFile /home/gateuser/sim/ActGate.h33
+/gate/source/Ga68/imageReader/readFile /home/gateuser/sim/GenerateImages/header/ActGate.h33
 
 
 # 设置体素源的位置（默认是从 corner 开始，需往负方向平移半个维度）
