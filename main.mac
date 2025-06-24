@@ -5,10 +5,11 @@
 #  Runtime control commands 
 #------------------------#
 
-/control/verbose 2
-/run/verbose 2
-/event/verbose 1
-/tracking/verbose 1
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+
 
 #------------------------#
 #  Set Materials
@@ -74,6 +75,7 @@
 #------------------#
 # ACQUISITION TIME #
 #------------------#
+
 
 /gate/application/setTimeSlice   100 ms
 /gate/application/setTimeStart   0 ms

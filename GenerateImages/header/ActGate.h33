@@ -1,5 +1,5 @@
 !INTERFILE  :=
-name of data file := ActGate.bin
+name of data file := /home/gateuser/sim/GenerateImages/header/ActGate.bin
 !GENERAL DATA :=
 !GENERAL IMAGE DATA :=
 !type of data := PET
