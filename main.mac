@@ -20,8 +20,10 @@
 #------------------------#
 #  Set Geometry(World，module)
 #------------------------#
-
-#/control/execute geometry.mac 
+/gate/world/geometry/setXLength 600. cm
+/gate/world/geometry/setYLength 600. cm
+/gate/world/geometry/setZLength 600. cm
+/control/execute geometry.mac 
 
 #------------------------#
 #  Set up the Physical Process
@@ -46,9 +48,7 @@
 #------------------------#
 
 /run/initialize
-/process/em/fluo true
-/process/em/auger true
-/process/em/pixe true
+
 
 #------------------------#
 #  Set the source (68Ga) 
@@ -68,8 +68,8 @@
 #Set the random setForcedHalfLife
 #------------------------#
 
-/gate/random/setEngineName JamesRandom
-/gate/random/setEngineSeed auto
+/gate/output/allowNoOutput
+/gate/output/root/disable
 
 
 #------------------#
@@ -79,6 +79,6 @@
 
 /gate/application/setTimeSlice   100 ms
 /gate/application/setTimeStart   0 ms
-/gate/application/setTimeStop    20 s
+/gate/application/setTimeStop    1 s
 
 /gate/application/startDAQ
