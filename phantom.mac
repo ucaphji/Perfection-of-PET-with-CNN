@@ -1,11 +1,11 @@
 /gate/world/daughters/name LungPhantom
 /gate/world/daughters/insert ImageNestedParametrisedVolume
 
-#/control/alias SimuId 1
+/control/alias SimuId 1
 # READ IMAGE (.h33 for Interfile, .mhd for MetaImage, .hdr for Analyze)
-#/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate{SimuId}.h33
+/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate{SimuId}.h33
 
-/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate1.h33
+#/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate1.h33
 
 
 # INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO
@@ -15,7 +15,7 @@
 
 /gate/LungPhantom/placement/setTranslation 0. 0. 0. mm
 /gate/LungPhantom/placement/setRotationAxis 1 0 0
-/gate/LungPhantom/placement/setRotationAngle 0 deg
+/gate/LungPhantom/placement/setRotationAngle 0 deg  
 
 # 敏感探测器绑定
 /gate/LungPhantom/attachPhantomSD
@@ -25,7 +25,10 @@
 /gate/actor/addActor MuMapActor getMuMap
 /gate/actor/getMuMap/attachTo LungPhantom
 #/gate/actor/getMuMap/save /home/gateuser/sim/images/Phantom{SimuId}.hdr
-/gate/actor/getMuMap/save /home/gateuser/sim/images/Phantom1.hdr
-/gate/actor/getMuMap/setVoxelSize 1.0 1.0 1.0  mm
-/gate/actor/getMuMap/setResolution 128 128 128 #from 64 to 128
+#/gate/actor/getMuMap/save /home/gateuser/sim/images/Phantom1.hdr
+/gate/actor/getMuMap/save /output/Phantom1.hdr
+/gate/actor/getMuMap/setVoxelSize 10.0 10.0 10.0 mm 
+/gate/actor/getMuMap/setResolution 16 16 16 
 /gate/actor/getMuMap/setEnergy 511 keV
+
+/control/echo "MuMapActor Configuration Complete"

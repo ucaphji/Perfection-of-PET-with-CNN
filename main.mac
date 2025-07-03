@@ -8,7 +8,7 @@
 /control/verbose 0
 /run/verbose 0
 /event/verbose 0
-/tracking/verbose 0
+/tracking/verbose 2
 
 
 #------------------------#
@@ -61,15 +61,16 @@
 #  Set the output
 #------------------------#
 
-/gate/output/root/setFileName output.root
+/gate/output/allowNoOutput true
 /gate/output/root/enable
+/gate/output/root/setFileName output.root
 
 #------------------------#
 #Set the random setForcedHalfLife
 #------------------------#
 
-/gate/output/allowNoOutput
-/gate/output/root/disable
+/gate/random/setEngineName JamesRandom
+/gate/random/setEngineSeed auto
 
 
 #------------------#
@@ -82,3 +83,4 @@
 /gate/application/setTimeStop    1 s
 
 /gate/application/startDAQ
+
