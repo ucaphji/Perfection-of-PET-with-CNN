@@ -3,3 +3,7 @@ Map the coordinates of the positron annihilation positions in the GATE simulatio
 
 2. PoistronRange.py:
 For processing and analyzing PET simulation data：Read particle trajectory data from GATE simulation output, clean and organize raw data, calculate positron range distribution, perform spatial distribution statistics, and analyze distribution characteristics using fitting functions
+
+3. obtainAnnihilGrid.py
+Simulation data processing and analysis. It has some methods for positron annihilation position analysis, radiation source modeling, positron range calculation, and finally visualization.
+

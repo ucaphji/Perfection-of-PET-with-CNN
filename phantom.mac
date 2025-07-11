@@ -1,15 +1,20 @@
+# set the world volume
+/gate/world/geometry/setXLength 600. cm
+/gate/world/geometry/setYLength 600. cm
+/gate/world/geometry/setZLength 600. cm
+
+# set the sub-volume - lung
 /gate/world/daughters/name LungPhantom
 /gate/world/daughters/insert ImageNestedParametrisedVolume
 
-/control/alias SimuId 1
-# READ IMAGE (.h33 for Interfile, .mhd for MetaImage, .hdr for Analyze)
-/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate{SimuId}.h33
 
+# READ IMAGE (.h33 for Interfile, .mhd for MetaImage, .hdr for Analyze)
+/control/alias SimuId 1
+/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate{SimuId}.h33
 #/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/header/AtnGate1.h33
 
 
-# INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO
-# MATERIAL INFORMATION
+# INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO MATERIAL INFORMATION
 # RANGE TRANSLATOR (label values)
 /gate/LungPhantom/geometry/setRangeToMaterialFile /home/gateuser/sim/AttenuationConv.dat
 
@@ -25,10 +30,8 @@
 /gate/actor/addActor MuMapActor getMuMap
 /gate/actor/getMuMap/attachTo LungPhantom
 #/gate/actor/getMuMap/save /home/gateuser/sim/images/Phantom{SimuId}.hdr
-#/gate/actor/getMuMap/save /home/gateuser/sim/images/Phantom1.hdr
-/gate/actor/getMuMap/save /output/Phantom1.hdr
+/gate/actor/getMuMap/save /home/gateuser/sim/output/Phantom1.hdr
 /gate/actor/getMuMap/setVoxelSize 10.0 10.0 10.0 mm 
 /gate/actor/getMuMap/setResolution 16 16 16 
 /gate/actor/getMuMap/setEnergy 511 keV
 
-/control/echo "MuMapActor Configuration Complete"

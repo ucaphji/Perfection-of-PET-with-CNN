@@ -20,9 +20,7 @@
 #------------------------#
 #  Set Geometry(World，module)
 #------------------------#
-/gate/world/geometry/setXLength 600. cm
-/gate/world/geometry/setYLength 600. cm
-/gate/world/geometry/setZLength 600. cm
+
 /control/execute geometry.mac 
 
 #------------------------#
@@ -72,6 +70,15 @@
 /gate/random/setEngineName JamesRandom
 /gate/random/setEngineSeed auto
 
+#------------------------#
+#Set actors
+#------------------------#
+
+#/gate/actor/addActor  SimulationStatisticActor stat
+#/gate/actor/stat/save /home/gateuser/sim/output/stats.txt
+
+#/gate/actor/addActor AnnihilationRangeActor range_actor
+#/gate/actor/range_actor/save  /home/gateuser/sim/output/range.root
 
 #------------------#
 # ACQUISITION TIME #
@@ -80,7 +87,7 @@
 
 /gate/application/setTimeSlice   100 ms
 /gate/application/setTimeStart   0 ms
-/gate/application/setTimeStop    1 s
+/gate/application/setTimeStop    5 s
 
 /gate/application/startDAQ
 

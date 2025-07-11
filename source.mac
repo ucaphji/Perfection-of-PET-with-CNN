@@ -2,8 +2,7 @@
 /gate/source/addSource Ga68 voxel
 /gate/source/Ga68/reader/insert image
 
-# INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO
-# ACTIVITY VALUES
+# INSERT THE TRANSLATOR THAT WILL CONVERT THE IMAGE FROM DIGITAL VALUES TO ACTIVITY VALUES
 /gate/source/Ga68/imageReader/translator/insert linear
 /gate/source/Ga68/imageReader/linearTranslator/setScale 10. kBq
 

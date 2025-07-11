@@ -40,6 +40,8 @@ def generate_actgate(n, output_dir):
     save_image_bin(ag, bin_path)
     createH33Header(size, width, file_name + ".bin", hdr_path)
 
+    
+
 def main():
     n = VOLUME_SIZE
     size = [n, n, n]
