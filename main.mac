@@ -39,7 +39,7 @@
 #  Set the Phantom (Lung tissue)
 #------------------------#
 
-/control/execute phantom.mac
+/control/execute test_phantom.mac
 
 #------------------------#
 #  Initialization
@@ -59,26 +59,20 @@
 #  Set the output
 #------------------------#
 
-/gate/output/allowNoOutput true
-/gate/output/root/enable
-/gate/output/root/setFileName output.root
+#/gate/output/allowNoOutput true
+#/gate/output/root/enable
+#/gate/output/root/setFileName output.root
+
+/gate/output/allowNoOutput
+/gate/output/root/disable
 
 #------------------------#
 #Set the random setForcedHalfLife
 #------------------------#
 
-/gate/random/setEngineName JamesRandom
-/gate/random/setEngineSeed auto
+#/gate/random/setEngineName JamesRandom
+#/gate/random/setEngineSeed auto
 
-#------------------------#
-#Set actors
-#------------------------#
-
-#/gate/actor/addActor  SimulationStatisticActor stat
-#/gate/actor/stat/save /home/gateuser/sim/output/stats.txt
-
-#/gate/actor/addActor AnnihilationRangeActor range_actor
-#/gate/actor/range_actor/save  /home/gateuser/sim/output/range.root
 
 #------------------#
 # ACQUISITION TIME #
@@ -90,4 +84,5 @@
 /gate/application/setTimeStop    5 s
 
 /gate/application/startDAQ
+
 

@@ -1,0 +1,26 @@
+/gate/world/geometry/setXLength 600. cm
+/gate/world/geometry/setYLength 600. cm
+/gate/world/geometry/setZLength 600. cm
+
+/gate/world/daughters/name LungPhantom
+/gate/world/daughters/insert ImageNestedParametrisedVolume
+
+/gate/LungPhantom/geometry/setImage /home/gateuser/sim/GenerateImages/output/pointInLung.h33
+
+
+/gate/LungPhantom/geometry/setRangeToMaterialFile /home/gateuser/sim/AttenuationConv.dat
+
+/gate/LungPhantom/placement/setTranslation 0. 0. 0. mm
+/gate/LungPhantom/placement/setRotationAxis 1 0 0
+/gate/LungPhantom/placement/setRotationAngle 0 deg  
+
+/gate/LungPhantom/attachPhantomSD
+
+
+/gate/actor/addActor MuMapActor getMuMap
+/gate/actor/getMuMap/attachTo LungPhantom
+/gate/actor/getMuMap/save /home/gateuser/sim/output/testPhantom.hdr
+/gate/actor/getMuMap/setVoxelSize 10.0 10.0 10.0 mm 
+/gate/actor/getMuMap/setResolution 16 16 16 
+/gate/actor/getMuMap/setEnergy 511 keV
+
